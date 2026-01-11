@@ -1,11 +1,11 @@
 <template>
   <!-- Used when user is also author -->
   <span v-if="canModify">
-    <router-link class="btn btn-sm btn-outline-secondary" :to="editArticleLink">
+    <router-link class="btn btn-sm btn-outline-secondary" :to="editArticleLink" data-cy="edit-article">
       <i class="ion-edit"></i> <span>&nbsp;Edit Article</span>
     </router-link>
     <span>&nbsp;&nbsp;</span>
-    <button class="btn btn-outline-danger btn-sm" @click="deleteArticle">
+    <button class="btn btn-outline-danger btn-sm" @click="deleteArticle" data-cy="delete-article">
       <i class="ion-trash-a"></i> <span>&nbsp;Delete Article</span>
     </button>
   </span>
@@ -20,6 +20,7 @@
       class="btn btn-sm"
       @click="toggleFavorite"
       :class="toggleFavoriteButtonClasses"
+      data-cy="follow-user-btn"
     >
       <i class="ion-heart"></i> <span>&nbsp;</span>
       <span v-text="favoriteArticleLabel" /> <span>&nbsp;</span>

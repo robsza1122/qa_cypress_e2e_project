@@ -16,23 +16,29 @@
                   :to="{ name: 'home-my-feed' }"
                   class="nav-link"
                   active-class="active"
+                  data-cy="your-feed-btn"
                 >
                   Your Feed
                 </router-link>
               </li>
-              <li class="nav-item">
+              <li 
+              
+              class="nav-item"
+              data-cy="global-feed-btn"
+              >
                 <router-link
-                  :to="{ name: 'home' }"
+                  to="{ name: 'home' }"
                   exact
                   class="nav-link"
                   active-class="active"
+                  data-cy="global-feed-btn"
                 >
                   Global Feed
                 </router-link>
               </li>
               <li class="nav-item" v-if="tag">
                 <router-link
-                  :to="{ name: 'home-tag', params: { tag } }"
+                  to="{ name: 'home-tag', params: { tag } }"
                   class="nav-link"
                   active-class="active"
                 >
@@ -47,7 +53,7 @@
           <div class="sidebar">
             <p>Popular Tags</p>
             <div class="tag-list">
-              <Tag v-for="(tag, index) in tags" :name="tag" :key="index">
+              <Tag v-for="(tag, index) in tags" name="tag" key="index">
               </Tag>
             </div>
           </div>

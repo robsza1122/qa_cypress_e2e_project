@@ -68,6 +68,19 @@ export default {
           buttons: false,
         });
 
+              setTimeout(() => {
+        const swalModal = document.querySelector('.swal-modal');
+        if (swalModal) {
+          swalModal.setAttribute('data-cy', 'login-loading-modal');
+        }
+        
+      
+        const swalText = document.querySelector('.swal-text');
+        if (swalText) {
+          swalText.setAttribute('data-cy', 'login-status-text');
+        }
+      }, 50);
+
       let response = await this.$store.dispatch("logIn", { email, password });
 
       if (response === true) {
@@ -79,7 +92,13 @@ export default {
         title: "Login failed!",
         text: response.errors.body.join(" "),
         icon: "error"
+      }).then(() => {
+         const errorModal = document.querySelector('.swal-modal');
+         if (errorModal) {
+           errorModal.setAttribute('data-cy', 'login-error-modal');
+         }
       });
+
     }
   },
   beforeRouteEnter(to, from, next) {

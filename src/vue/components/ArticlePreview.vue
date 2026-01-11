@@ -2,8 +2,8 @@
   <div class="article-preview">
     <ArticleMeta :article="article" />
     <router-link :to="articleLink" class="preview-link">
-      <h1 v-text="article.title" />
-      <p v-text="article.description" />
+      <h1 v-text="article.title" data-cy="preview-title"/>
+      <p v-text="article.description" data-cy="preview-description" />
       <span>Read more...</span>
       <TagList :tags="article.tags" />
     </router-link>

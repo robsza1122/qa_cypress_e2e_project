@@ -15,6 +15,14 @@ class SignInPageObject extends PageObject {
     return cy.getByDataCy('sign-in-btn');
   }
 
+  get errorScreen() {
+    return cy.get('.swal-modal');
+  }
+
+  get headerHomeBtn() {
+    return cy.getByDataCy('home');
+  }
+
   typeEmail(email) {
     this.emailField
       .type(email);
@@ -28,6 +36,16 @@ class SignInPageObject extends PageObject {
   clickSignInBtn() {
     this.signInBtn
       .click();
+  }
+
+  clickHeaderHomeBtn() {
+    this.headerHomeBtn
+      .click();
+  }
+
+  assertSignInError() {
+    this.errorScreen
+      .should('exist');
   }
 }
 

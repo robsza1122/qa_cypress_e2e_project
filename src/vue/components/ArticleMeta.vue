@@ -1,7 +1,7 @@
 <template>
   <div class="article-meta">
     <router-link
-      :to="{ name: 'profile', params: { username: authorUsername() } }"
+      to="{ name: 'profile', params: { username: authorUsername() } }"
     >
       <img :src="authorImage()" />
     </router-link>
@@ -9,6 +9,7 @@
       <router-link
         :to="{ name: 'profile', params: { username: authorUsername() } }"
         class="author"
+        data-cy="author-link"
       >
         {{ authorUsername() }}
       </router-link>
@@ -27,6 +28,7 @@
         'btn-primary': article && article.favorited,
         'btn-outline-primary': article && !article.favorited
       }"
+      data-cy="follow-user-btn"
     >
       <i class="ion-heart"></i>
       <span class="counter"> {{ article.favoritesCount }} </span>

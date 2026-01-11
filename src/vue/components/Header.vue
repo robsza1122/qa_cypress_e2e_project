@@ -11,6 +11,7 @@
             active-class="active"
             exact
             :to="{ name: 'home' }"
+            data-cy="header-home-btn"
           >
             Home
           </router-link>
@@ -21,6 +22,7 @@
             active-class="active"
             exact
             :to="{ name: 'login' }"
+            data-cy="header-sign-in-btn"
           >
             <i class="ion-compose"></i>Sign in
           </router-link>
@@ -31,6 +33,7 @@
             active-class="active"
             exact
             :to="{ name: 'register' }"
+            data-cy="header-sign-up-btn"
           >
             <i class="ion-compose"></i>Sign up
           </router-link>
@@ -42,15 +45,19 @@
             class="nav-link"
             active-class="active"
             exact
+            data-cy="home"
             :to="{ name: 'home' }"
           >
             Home
           </router-link>
         </li>
-        <li class="nav-item">
+        <li 
+        class="nav-item"
+        >
           <router-link
             class="nav-link"
             active-class="active"
+            data-cy="new-article-link"
             :to="{
               name: 'article-edit',
               params: { new: true }
@@ -65,6 +72,7 @@
             active-class="active"
             exact
             :to="{ name: 'settings' }"
+            data-cy="settings"
           >
             <i class="ion-gear-a"></i>&nbsp;Settings
           </router-link>
