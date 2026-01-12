@@ -2,20 +2,28 @@
   <div class="article-page">
     <div class="banner">
       <div class="container">
-        <h1 data-cy="article-title">{{ article.title }}</h1>
+        <h1 data-qa="article-title">{{ article.title }}</h1>
         <ArticleMeta :article="article" :actions="true"></ArticleMeta>
       </div>
     </div>
     <div class="container page">
       <div class="row article-content">
         <div class="col-xs-12">
-          <div v-html="parseMarkdown(article.body)" data-cy="article-body"></div>
-          <ul class="tag-list" v-if="article.tags && article.tags.length !== 1 && !!article.tags[0]">
+          <div
+            v-html="parseMarkdown(article.body)"
+            data-qa="article-body"
+          ></div>
+          <ul
+            class="tag-list"
+            v-if="
+              article.tags && article.tags.length !== 1 && !!article.tags[0]
+            "
+          >
             <li v-for="(tag, index) of article.tags" :key="tag + index">
               <Tag
                 :name="tag"
                 className="tag-default tag-pill tag-outline"
-                data-cy="article-tag"
+                data-qa="article-tag"
               ></Tag>
             </li>
           </ul>
@@ -65,14 +73,14 @@ export default {
   props: {
     slug: {
       type: String,
-      required: true
-    }
+      required: true,
+    },
   },
   components: {
     ArticleMeta,
     Comment,
     CommentEditor,
-    Tag
+    Tag,
   },
   async beforeRouteEnter(to, from, next) {
     next((vm) => {
@@ -81,12 +89,7 @@ export default {
     });
   },
   computed: {
-    ...mapGetters([
-      "article",
-      "comments",
-      "is_authenticated",
-      "user"
-    ])
+    ...mapGetters(["article", "comments", "is_authenticated", "user"]),
   },
   methods: {
     articleCreatedAt() {
@@ -111,7 +114,7 @@ export default {
       if (content) {
         return marked(content);
       }
-    }
-  }
+    },
+  },
 };
 </script>

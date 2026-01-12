@@ -12,6 +12,7 @@ const signInPage = new SignInPageObject();
 
 describe('Sign Up page', () => {
   beforeEach(() => {
+    cy.task('db:clear');
     signUpPage.visit();
   });
 

@@ -10,6 +10,7 @@ const homePage = new HomePageObject();
 
 describe('Sign In page', () => {
   beforeEach(() => {
+    cy.task('db:clear');
     signInPage.visit();
   });
 

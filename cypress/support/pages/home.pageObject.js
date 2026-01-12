@@ -28,8 +28,7 @@ class HomePageObject extends PageObject {
   }
 
   get followBtn() {
-    return cy.getByDataCy('follow-user-btn')
-      .first();
+    return cy.getByDataCy('follow-user-btn').first();
   }
 
   get feedBtn() {
@@ -61,109 +60,86 @@ class HomePageObject extends PageObject {
   }
 
   assertHeaderContainUsername(username) {
-    this.profileLink
-      .should('contain', username);
+    this.profileLink.should('contain', username);
   }
 
   assertLoggingOut() {
-    this.profileLink
-      .should('not.exist');
-  }
-
-  checkProfileLinkForLogout() {
-    this.profileLink
-      .should('not.exist');
+    this.profileLink.should('not.exist');
   }
 
   clickHomeLink() {
-    this.homeLink
-      .click();
+    this.homeLink.click();
   }
 
   clickSettingsLink() {
-    this.settingsLink
-      .click();
+    this.settingsLink.click();
   }
 
   clickSignInNav() {
-    this.signInNavigation
-      .click();
+    this.signInNavigation.click();
   }
 
   clickArticleBtn() {
-    this.articleLink
-      .click();
+    this.articleLink.click();
   }
 
   clickGlobalFeedBtn() {
-    this.feedBtn
-      .click();
+    this.feedBtn.click();
   }
 
   clickProfileLink() {
-    this.profileLink
-      .click();
+    this.profileLink.click();
   }
 
   clickFollowBtn() {
-    this.followBtn
-      .click();
+    this.followBtn.click();
   }
 
   clickAuthor() {
-    this.author
-      .click();
-  };
+    this.author.click();
+  }
 
   clickInDeletionOfArticle() {
-    cy.getByDataCy('delete-article-btn')
-      .first()
-      .click();
+    cy.getByDataCy('delete-article-btn').first().click();
   }
 
   clickInEditionOfArticle() {
-    cy.getByDataCy('edit-article-btn')
-      .first()
-      .click();
+    cy.getByDataCy('edit-article-btn').first().click();
   }
 
   clickYourFeedBtn() {
-    this.yourFeedBtn
-      .click();
+    this.yourFeedBtn.click();
   }
 
   assertFollowedUser() {
-    this.followBtn
-      .should('have.class', 'btn btn-sm pull-xs-right btn-primary');
+    this.followBtn.should('have.class', 'btn btn-sm pull-xs-right btn-primary');
   }
 
   assertUnfollowedUser() {
-    this.followBtn
-      .should('have.class', 'btn btn-sm pull-xs-right btn-outline-primary');
+    this.followBtn.should(
+      'have.class',
+      'btn btn-sm pull-xs-right btn-outline-primary'
+    );
   }
 
   assertNewArticle(title, description) {
-    this.newTitleInBanner
-      .should('contain.text', title);
-    this.bodyUnderBanner
-      .should('contain.text', description);
+    this.newTitleInBanner.should('contain.text', title);
+    this.bodyUnderBanner.should('contain.text', description);
   }
 
   assertTitleInBanner(title) {
-    this.newTitleInBanner
-      .should('contain.text', title);
+    this.newTitleInBanner.should('contain.text', title);
   }
 
   assertBodyUnderBanner(body) {
-    this.bodyUnderBanner
-      .should('contain.text', body);
+    this.bodyUnderBanner.should('contain.text', body);
   }
 
   assertDeletedArticle(title, description) {
-    cy.contains('[data-cy="preview-title"]', title)
-      .should('not.exist');
-    cy.contains('[data-cy="preview-description"]', description)
-      .should('not.exist');
+    cy.contains('[data-qa="preview-title"]', title).should('not.exist');
+    cy.contains('[data-qa="preview-description"]', description).should(
+      'not.exist'
+    );
   }
 }
 

@@ -13,6 +13,7 @@ const articlePage = new ArticlePageObject();
 
 describe('Article', () => {
   beforeEach(() => {
+    cy.task('db:clear');
     const { username, email, password } = generateUser();
     signInPage.visit();
     cy.register(email, username, password);
@@ -58,6 +59,6 @@ describe('Article', () => {
     articlePage.clickDeleteArticleBtn();
     homePage.clickHomeLink();
     cy.scrollTo('bottom');
-    articlePage.assertionDeletedArticle(title, description);
+    homePage.assertDeletedArticle(title, description);
   });
 });

@@ -145,13 +145,6 @@ class ArticlePageObject extends PageObject {
     this.articleBody
       .should('have.text', body);
   }
-
-  assertionDeletedArticle(title, description) {
-    this.previewTitle
-      .should('not.have.text', title);
-    this.previewDescription
-      .should('not.have.text', description);
-  }
 }
 
 export default ArticlePageObject;

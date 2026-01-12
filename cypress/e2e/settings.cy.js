@@ -11,6 +11,10 @@ const homePage = new HomePageObject();
 const settingsPage = new SettingsPageObject();
 
 describe('Settings page', () => {
+  beforeEach(() => {
+    cy.task('db:clear');
+  });
+
   it('should provide an ability to update username', () => {
     const { username, email, password } = generateUser();
     signInPage.visit();

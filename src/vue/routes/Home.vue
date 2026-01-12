@@ -16,22 +16,18 @@
                   :to="{ name: 'home-my-feed' }"
                   class="nav-link"
                   active-class="active"
-                  data-cy="your-feed-btn"
+                  data-qa="your-feed-btn"
                 >
                   Your Feed
                 </router-link>
               </li>
-              <li 
-              
-              class="nav-item"
-              data-cy="global-feed-btn"
-              >
+              <li class="nav-item" data-qa="global-feed-btn">
                 <router-link
                   to="{ name: 'home' }"
                   exact
                   class="nav-link"
                   active-class="active"
-                  data-cy="global-feed-btn"
+                  data-qa="global-feed-btn"
                 >
                   Global Feed
                 </router-link>
@@ -53,8 +49,7 @@
           <div class="sidebar">
             <p>Popular Tags</p>
             <div class="tag-list">
-              <Tag v-for="(tag, index) in tags" name="tag" key="index">
-              </Tag>
+              <Tag v-for="(tag, index) in tags" name="tag" key="index"> </Tag>
             </div>
           </div>
         </div>
@@ -70,19 +65,16 @@ import Tag from "@/components/Tag.vue";
 export default {
   name: "home",
   components: {
-    Tag
+    Tag,
   },
   mounted() {
     this.$store.dispatch("fetchTags");
   },
   computed: {
-    ...mapGetters([
-      "is_authenticated",
-      "tags"
-    ]),
+    ...mapGetters(["is_authenticated", "tags"]),
     tag() {
       return this.$route.params.tag;
-    }
-  }
+    },
+  },
 };
 </script>

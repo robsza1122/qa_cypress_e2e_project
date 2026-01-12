@@ -14,9 +14,6 @@ const signUpPage = new SignUpPageObject();
 describe('Follow/unfollow button', () => {
   beforeEach(() => {
     signUpPage.visit();
-  });
-
-  it('should provide an ability to follow the another user', () => {
     const { username, email, password } = generateUser();
     const { title, description, body, tags } = generateArticle();
 
@@ -31,6 +28,16 @@ describe('Follow/unfollow button', () => {
     articleInPage.typeBody(body);
     articleInPage.typeTags(tags);
     articleInPage.handleAddingArticle();
+  });
+
+  it('should provide an ability to follow the another user', () => {
+    signUpPage.visit();
+    const { username, email, password } = generateUser();
+    signUpPage.typeUserName(username);
+    signUpPage.typeEmail(email);
+    signUpPage.typePassword(password);
+    signUpPage.clickSignUpBtn();
+    signUpPage.clickSwalBtn();
     homeInPage.clickHomeLink();
     homeInPage.clickYourFeedBtn();
     homeInPage.clickFollowBtn();
@@ -38,20 +45,13 @@ describe('Follow/unfollow button', () => {
   });
 
   it('should provide an ability to unfollow the another user', () => {
+    signUpPage.visit();
     const { username, email, password } = generateUser();
-    const { title, description, body, tags } = generateArticle();
-
     signUpPage.typeUserName(username);
     signUpPage.typeEmail(email);
     signUpPage.typePassword(password);
     signUpPage.clickSignUpBtn();
     signUpPage.clickSwalBtn();
-    articleInPage.clickArticleBtn();
-    articleInPage.typeTitle(title);
-    articleInPage.typeDescription(description);
-    articleInPage.typeBody(body);
-    articleInPage.typeTags(tags);
-    articleInPage.handleAddingArticle();
     homeInPage.clickHomeLink();
     homeInPage.clickYourFeedBtn();
     homeInPage.clickFollowBtn();

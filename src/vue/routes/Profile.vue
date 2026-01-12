@@ -20,7 +20,7 @@
                 class="btn btn-sm btn-secondary action-btn"
                 v-if="profile.following"
                 @click.prevent="unfollow()"
-                data-cy="follow-user-btn"
+                data-qa="follow-user-btn"
               >
                 <i class="ion-plus-round"></i> &nbsp;Unfollow
                 {{ profile.username }}
@@ -29,7 +29,7 @@
                 class="btn btn-sm btn-outline-secondary action-btn"
                 v-if="!profile.following"
                 @click.prevent="follow()"
-                data-cy="follow-user-btn"
+                data-qa="follow-user-btn"
               >
                 <i class="ion-plus-round"></i> &nbsp;Follow
                 {{ profile.username }}
@@ -50,7 +50,10 @@
                   class="nav-link"
                   active-class="active"
                   exact
-                  :to="{ name: 'profile', params: { username: profile.username } }"
+                  :to="{
+                    name: 'profile',
+                    params: { username: profile.username },
+                  }"
                 >
                   My Articles
                 </router-link>
@@ -60,7 +63,10 @@
                   class="nav-link"
                   active-class="active"
                   exact
-                  :to="{ name: 'profile-favorites', params: { username: profile.username } }"
+                  :to="{
+                    name: 'profile-favorites',
+                    params: { username: profile.username },
+                  }"
                 >
                   Favorited Articles
                 </router-link>
@@ -83,11 +89,7 @@ export default {
     this.$store.dispatch("fetchProfile", this.$route.params);
   },
   computed: {
-    ...mapGetters([
-      "is_authenticated",
-      "profile",
-      "user",
-    ])
+    ...mapGetters(["is_authenticated", "profile", "user"]),
   },
   methods: {
     isCurrentUser() {
@@ -102,14 +104,14 @@ export default {
     },
     unfollow() {
       this.$store.dispatch("setFollowProfile", this.$route.params);
-    }
+    },
   },
   watch: {
     $route(to) {
       if (to.params && to.params.username) {
         this.$store.dispatch("fetchProfile", to.params);
       }
-    }
-  }
+    },
+  },
 };
 </script>

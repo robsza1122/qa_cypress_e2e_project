@@ -28,9 +28,14 @@ import { addMatchImageSnapshotCommand } from 'cypress-image-snapshot/command';
 
 addMatchImageSnapshotCommand();
 
-Cypress.Commands.add('login',
+Cypress.Commands.add(
+  'login',
   // eslint-disable-next-line max-len
-  (email = 'user32@hotmail.com', username = 'user32', password = 'Userpass1') => {
+  (
+    email = 'user32@hotmail.com',
+    username = 'user32',
+    password = 'Userpass1'
+  ) => {
     cy.request('POST', '/users', {
       user: {
         email,
@@ -41,7 +46,7 @@ Cypress.Commands.add('login',
       const user = {
         bio: response.body.user.bio,
         effectiveImage:
-       'https://static.productionready.io/images/smiley-cyrus.jpg',
+          'https://static.productionready.io/images/smiley-cyrus.jpg',
         email: response.body.user.email,
         image: response.body.user.image,
         token: response.body.user.token,
@@ -50,13 +55,15 @@ Cypress.Commands.add('login',
       window.localStorage.setItem('user', JSON.stringify(user));
       cy.setCookie('auth', response.body.user.token);
     });
-  });
+  }
+);
 
 Cypress.Commands.add('getByDataCy', (selector) => {
-  cy.get(`[data-cy="${selector}"]`);
+  cy.get(`[data-qa="${selector}"]`);
 });
 
-Cypress.Commands.add('register',
+Cypress.Commands.add(
+  'register',
   (email = 'riot@qa.team', username = 'riot', password = '12345Qwert!') => {
     cy.request('POST', '/users', {
       email,
@@ -66,7 +73,7 @@ Cypress.Commands.add('register',
       const user = {
         bio: response.body.user.bio,
         effectiveImage:
-       'https://static.productionready.io/images/smiley-cyrus.jpg',
+          'https://static.productionready.io/images/smiley-cyrus.jpg',
         email: response.body.user.email,
         image: response.body.user.image,
         token: response.body.user.token,
@@ -75,10 +82,9 @@ Cypress.Commands.add('register',
       window.localStorage.setItem('user', JSON.stringify(user));
       cy.setCookie('auth', response.body.user.token);
     });
-  });
+  }
+);
 
 Cypress.Commands.add('resetBase', () => {
-  return cy.request('POST',
-    'http://localhost:1667/api/testing/reset'
-  );
+  return cy.request('POST', 'http://localhost:1667/api/testing/reset');
 });
