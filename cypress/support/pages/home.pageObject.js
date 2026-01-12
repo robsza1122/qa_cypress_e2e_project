@@ -4,59 +4,59 @@ class HomePageObject extends PageObject {
   url = '/#/';
 
   get homeLink() {
-    return cy.getByDataCy('home');
+    return cy.getByDataQa('home');
   }
 
   get profileLink() {
-    return cy.getByDataCy('username-link');
+    return cy.getByDataQa('username-link');
   }
 
   get settingsLink() {
-    return cy.getByDataCy('settings');
+    return cy.getByDataQa('settings');
   }
 
   get signInNavigation() {
-    return cy.getByDataCy('header-sign-in-btn');
+    return cy.getByDataQa('header-sign-in-btn');
   }
 
   get signUpInNavigation() {
-    return cy.getByDataCy('header-sign-up-btn');
+    return cy.getByDataQa('header-sign-up-btn');
   }
 
   get articleLink() {
-    return cy.getByDataCy('new-article-link');
+    return cy.getByDataQa('new-article-link');
   }
 
   get followBtn() {
-    return cy.getByDataCy('follow-user-btn').first();
+    return cy.getByDataQa('follow-user-btn').first();
   }
 
   get feedBtn() {
-    return cy.getByDataCy('global-feed-btn');
+    return cy.getByDataQa('global-feed-btn');
   }
 
   get newTitleInBanner() {
-    return cy.getByDataCy('banner-title');
+    return cy.getByDataQa('banner-title');
   }
 
   get bodyUnderBanner() {
-    return cy.getByDataCy('article-page-body');
+    return cy.getByDataQa('article-page-body');
   }
 
   get previewTitle() {
-    return cy.getByDataCy('preview-title');
+    return cy.getByDataQa('preview-title');
   }
 
   get previewDescription() {
-    return cy.getByDataCy('preview-description');
+    return cy.getByDataQa('preview-description');
   }
 
   get author() {
-    return cy.getByDataCy('author-link');
+    return cy.getByDataQa('author-link');
   }
 
-  get yourFeedBtn() {
-    return cy.getByDataCy('your-feed-btn');
+  get globalFeedBtn() {
+    return cy.getByDataQa('your-feed-btn');
   }
 
   assertHeaderContainUsername(username) {
@@ -100,15 +100,11 @@ class HomePageObject extends PageObject {
   }
 
   clickInDeletionOfArticle() {
-    cy.getByDataCy('delete-article-btn').first().click();
+    cy.getByDataQa('delete-article-btn').first().click();
   }
 
   clickInEditionOfArticle() {
-    cy.getByDataCy('edit-article-btn').first().click();
-  }
-
-  clickYourFeedBtn() {
-    this.yourFeedBtn.click();
+    cy.getByDataQa('edit-article-btn').first().click();
   }
 
   assertFollowedUser() {

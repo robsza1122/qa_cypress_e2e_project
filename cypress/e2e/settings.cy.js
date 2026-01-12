@@ -22,7 +22,7 @@ describe('Settings page', () => {
     signInPage.typeEmail(email);
     signInPage.typePassword(password);
     signInPage.clickSignInBtn();
-    signInPage.clickHeaderHomeBtn();
+    homePage.clickHomeLink();
     homePage.clickSettingsLink();
     settingsPage.typeUserName('NewUser123!');
     settingsPage.clickUpdateSettingsBtn();
@@ -36,7 +36,7 @@ describe('Settings page', () => {
     signInPage.typeEmail(email);
     signInPage.typePassword(password);
     signInPage.clickSignInBtn();
-    signInPage.clickHeaderHomeBtn();
+    homePage.clickHomeLink();
     homePage.clickSettingsLink();
     settingsPage.typeBio('New Bio Text!!!');
     settingsPage.clickUpdateSettingsBtn();
@@ -52,7 +52,7 @@ describe('Settings page', () => {
     signInPage.typeEmail(email);
     signInPage.typePassword(password);
     signInPage.clickSignInBtn();
-    signInPage.clickHeaderHomeBtn();
+    homePage.clickHomeLink();
     homePage.clickSettingsLink();
     settingsPage.typeEmail('updateMail@example.com');
     settingsPage.clickUpdateSettingsBtn();
@@ -73,7 +73,7 @@ describe('Settings page', () => {
     signInPage.typeEmail(email);
     signInPage.typePassword(password);
     signInPage.clickSignInBtn();
-    signInPage.clickHeaderHomeBtn();
+    homePage.clickHomeLink();
     homePage.clickSettingsLink();
     settingsPage.typePassword('UpdatePassword1');
     settingsPage.clickUpdateSettingsBtn();
@@ -93,7 +93,7 @@ describe('Settings page', () => {
     signInPage.typeEmail(email);
     signInPage.typePassword(password);
     signInPage.clickSignInBtn();
-    signInPage.clickHeaderHomeBtn();
+    homePage.clickHomeLink();
     homePage.clickSettingsLink();
     settingsPage.clickLogoutBtn();
     homePage.assertLoggingOut();

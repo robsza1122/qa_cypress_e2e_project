@@ -2,27 +2,27 @@ import PageObject from '../PageObject';
 
 class SettingsPageObject extends PageObject {
   get usernameInSettings() {
-    return cy.getByDataCy('update-username');
+    return cy.getByDataQa('update-username');
   }
 
   get bioInSettings() {
-    return cy.getByDataCy('update-bio');
+    return cy.getByDataQa('update-bio');
   }
 
   get emailInSettings() {
-    return cy.getByDataCy('update-email');
+    return cy.getByDataQa('update-email');
   }
 
   get passwordInSettings() {
-    return cy.getByDataCy('update-password');
+    return cy.getByDataQa('update-password');
   }
 
   get updateSettingsBtn() {
-    return cy.getByDataCy('update-settings');
+    return cy.getByDataQa('update-settings');
   }
 
   get logoutBtn() {
-    return cy.getByDataCy('logout');
+    return cy.getByDataQa('logout');
   }
 
   get swalBtn() {
@@ -30,52 +30,39 @@ class SettingsPageObject extends PageObject {
   }
 
   typeUserName(username) {
-    return this.usernameInSettings
-      .clear()
-      .type(username);
+    return this.usernameInSettings.clear().type(username);
   }
 
   typeBio(bio) {
-    this.bioInSettings
-      .clear()
-      .type(bio);
+    this.bioInSettings.clear().type(bio);
   }
 
   typeEmail(email) {
-    this.emailInSettings
-      .clear()
-      .type(email);
+    this.emailInSettings.clear().type(email);
   }
 
   typePassword(password) {
-    this.passwordInSettings
-      .clear()
-      .type(password);
+    this.passwordInSettings.clear().type(password);
   }
 
   clickUpdateSettingsBtn() {
-    this.updateSettingsBtn
-      .click();
+    this.updateSettingsBtn.click();
   }
 
   clickLogoutBtn() {
-    this.logoutBtn
-      .click();
+    this.logoutBtn.click();
   }
 
   clickSwalBtn() {
-    this.swalBtn
-      .click();
+    this.swalBtn.click();
   }
 
   assertUpdatedBio(bio) {
-    this.bioInSettings
-      .should('contain.value', bio);
+    this.bioInSettings.should('contain.value', bio);
   }
 
   assertUpdatedEmail(email) {
-    this.emailInSettings
-      .should('contain.value', email);
+    this.emailInSettings.should('contain.value', email);
   }
 }
 

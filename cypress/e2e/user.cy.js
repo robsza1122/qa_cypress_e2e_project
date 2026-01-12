@@ -13,6 +13,7 @@ const signUpPage = new SignUpPageObject();
 
 describe('Follow/unfollow button', () => {
   beforeEach(() => {
+    cy.task('db:clear');
     signUpPage.visit();
     const { username, email, password } = generateUser();
     const { title, description, body, tags } = generateArticle();
@@ -39,7 +40,7 @@ describe('Follow/unfollow button', () => {
     signUpPage.clickSignUpBtn();
     signUpPage.clickSwalBtn();
     homeInPage.clickHomeLink();
-    homeInPage.clickYourFeedBtn();
+    homeInPage.clickGlobalFeedBtn();
     homeInPage.clickFollowBtn();
     homeInPage.assertFollowedUser();
   });
@@ -53,7 +54,7 @@ describe('Follow/unfollow button', () => {
     signUpPage.clickSignUpBtn();
     signUpPage.clickSwalBtn();
     homeInPage.clickHomeLink();
-    homeInPage.clickYourFeedBtn();
+    homeInPage.clickGlobalFeedBtn();
     homeInPage.clickFollowBtn();
     homeInPage.clickFollowBtn();
     homeInPage.assertUnfollowedUser();

@@ -58,7 +58,7 @@ Cypress.Commands.add(
   }
 );
 
-Cypress.Commands.add('getByDataCy', (selector) => {
+Cypress.Commands.add('getByDataQa', (selector) => {
   cy.get(`[data-qa="${selector}"]`);
 });
 
